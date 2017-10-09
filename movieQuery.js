@@ -4,34 +4,43 @@ var movieList = [
   { title: "Omen : The Final Conflict", year: "1981", length: 108, rating: "6.7", genre: "horror" },
   { title: "Gladiator", year: "2000", length: 155, rating: "8.5", genre: "historical" },
   { title: "The Patriot", year: "2000", length: 165, rating: "7.1", genre: "historical" },
-  { title: "The Matrix Reloaded”, year: “2003", length: 138, rating: "7.2", genre: "sci-fi" },
-  { title: "Titanic”, year: “1997", length: 195, rating: "7.8", genre: "romance" }
-
+  { title: "The Matrix Reloaded", year : "2003", length: 138, rating: "7.2", genre: "sci-fi" },
+  { title: "Now you see me", year: "2013", length:115, rating:"7.3", genre:"thriller"}
 ];
 
 function getMovieTitle( index ){
-   return movieList [index].title;
+  console.log(movieList[index].title);
 }
-
+console.log("The title of the movie:");
 console.log(getMovieTitle(3));
-console.log(getMovieTitle(0));
 
 function addMovie( movie ){
   movieList.push(movie);
-  return movieList;
+  console.log(movieList);
 }
 
-var newMovie = { title: "The Terminator ”, year: “1994", length: 107, rating: "8", genre: "sci-fi" };
+var newMovie = { title: "The Matrix", year: "2001", length: 140, rating: "8.1", genre: "sci-fi" };
 console.log(addMovie(newMovie));
 
 function movieByRating(){
-  //add code
+  movieList.sort(function(a, b){return b.rating - a.rating});
+  console.log(movieList);
 }
 
 console.log(movieByRating());
 
 function findByTitle( title ){
-  //add code
+  for(var i=0; i<movieList.length; i++)
+  {
+    var temp = movieList[i].title.search(/matrix/i);
+    if(temp > 0)
+    {
+      console.log(movieList[i]);
+    }
+  }
 }
 
 console.log(findByTitle("matrix"));
+  
+
+
